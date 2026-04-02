@@ -15,34 +15,34 @@ Aplicación web de gestión de tareas construida con Next.js, React y Prisma. Pe
 
 ## Estructura del proyecto
 
-task-manager/
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   └── tasks/
-│   │   │       ├── route.js          # GET /api/tasks, POST /api/tasks
-│   │   │       └── [id]/
-│   │   │           └── route.js      # PATCH /api/tasks/:id, DELETE /api/tasks/:id
-│   │   └── dashboard/
-│   │       └── tasks/
-│   │           └── page.jsx          # Vista principal de tareas
-│   ├── lib/
-│   │   ├── authorize.js              # Middleware de autenticación
-│   │   ├── jwt.js                    # Sign y verify de tokens JWT
-│   │   └── prisma.js                 # Cliente Prisma (singleton)
-│   ├── styles/
-│   │   ├── global.css
-│   │   └── tasks.css
-│   └── middleware.js                 # Protección de rutas /dashboard/*
-├── tests/
-│   └── api/
-│       └── tasks.test.js             # Tests de integración del endpoint /api/tasks
-├── prisma/
-│   └── schema.prisma                 # Esquema de la base de datos
-├── babel.config.test.js              # Config de Babel exclusiva para Jest
-├── jest.config.js                    # Configuración de Jest
-├── .env                              # Variables de entorno
-└── package.json
+- task-manager/
+    - src/
+        - app/
+            - api/
+                - tasks/
+                    - route.js          # GET /api/tasks, POST /api/tasks
+                    - [id]/
+                        - route.js      # PATCH /api/tasks/:id, DELETE /api/tasks/:id
+            - dashboard/
+                - tasks/
+                    - page.jsx          # Vista principal de tareas
+        - lib/
+            - authorize.js              # Middleware de autenticación
+            - jwt.js                    # Sign y verify de tokens JWT
+            - prisma.js                 # Cliente Prisma (singleton)
+        - styles/
+            - global.css
+            - tasks.css
+        - middleware.js                 # Protección de rutas /dashboard/*
+    - tests/
+        - api/
+            - tasks.test.js             # Tests de integración del endpoint /api/tasks
+    - prisma/
+        - schema.prisma                 # Esquema de la base de datos
+    - babel.config.test.js              # Config de Babel exclusiva para Jest
+    - jest.config.js                    # Configuración de Jest
+    - env                              # Variables de entorno
+    - package.json
 
 ## Requisitos previos
 
