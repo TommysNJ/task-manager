@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { authorize } from "@/lib/authorize";
 
-// PATCH status
+// PATCH status - Actualizar el estado de una tarea
 export async function PATCH(req, { params }) {
   const session = await authorize(req);
   if (session instanceof NextResponse) return session;
@@ -32,7 +32,7 @@ export async function PATCH(req, { params }) {
       );
     }
 
-    // 🔥 Reglas de negocio
+    // Reglas de negocio
     if (task.status === "DONE") {
       return NextResponse.json(
         { message: "La tarea ya está completada" },
@@ -62,7 +62,7 @@ export async function PATCH(req, { params }) {
   }
 }
 
-// DELETE
+// DELETE - Borrar una tarea
 export async function DELETE(req, { params }) {
   const session = await authorize(req);
   if (session instanceof NextResponse) return session;

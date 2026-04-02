@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { authorize } from "@/lib/authorize";
 
-// GET /api/tasks
+// GET /api/tasks - listar todas las tareas
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -35,7 +35,7 @@ export async function GET(req) {
   }
 }
 
-// POST /api/tasks
+// POST /api/tasks - Crear una tarea
 export async function POST(req) {
   const session = await authorize(req);
   if (session instanceof NextResponse) return session;
@@ -44,9 +44,10 @@ export async function POST(req) {
     const body = await req.json();
     const { title, description, assignee, dueDate } = body;
 
+    // Validaciones
     if (!title || !assignee) {
       return NextResponse.json(
-        { message: "Campos requeridos: title, assignee" },
+        { message: "Campos obligatorios faltantes: title, assignee" },
         { status: 400 }
       );
     }
@@ -58,12 +59,18 @@ export async function POST(req) {
       );
     }
 
+     // Fecha local
+    const nowLocal = new Date();
+    const offset = nowLocal.getTimezoneOffset(); // en minutos
+    const createdAtLocal = new Date(nowLocal.getTime() - offset * 60 * 1000);
+
     const task = await prisma.task.create({
       data: {
         title,
         description,
         assignee,
         dueDate: dueDate ? new Date(dueDate) : null,
+        createdAt: createdAtLocal,
       },
     });
 

@@ -1,0 +1,302 @@
+/* =====================================================
+   CONTENEDOR PRINCIPAL
+   ===================================================== */
+
+.main-content-inner {
+  padding: 20px; /* espacio interno */
+}
+
+/* =====================================================
+   FILTROS Y BÚSQUEDA
+   ===================================================== */
+
+.filter-panel {
+  background-color: var(--card-bg); /* fondo blanco de tarjeta */
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between; /* separa select y botón */
+  align-items: center;
+}
+
+.search-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* =====================================================
+   BOTONES
+   ===================================================== */
+
+.create-btn {
+  background-color: var(--dk-blue);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.create-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* Botones dentro de tabla */
+.actions button {
+  margin-left: 8px;
+  background-color: #004a99;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =====================================================
+   TABLA
+   ===================================================== */
+
+.table-panel {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+  padding: 20px;
+  margin-top: 30px;
+  overflow-x: auto; /* scroll horizontal si es necesario */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+tbody tr:hover {
+  background-color: #f1f5f9; /* hover fila */
+}
+
+/* =====================================================
+   INPUTS Y TEXTAREA
+   ===================================================== */
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--dk-blue);
+  box-shadow: 0 0 0 2px rgba(0, 74, 153, 0.1);
+}
+
+/* borde rojo si hay error */
+.input-error {
+  border: 2px solid #dc2626 !important;
+  background-color: #fee2e2;
+}
+
+textarea.input {
+  min-height: 120px; /* para descripción */
+}
+
+/* =====================================================
+   BADGES DE ESTADO
+   ===================================================== */
+
+.badge-en-proceso {
+  background-color: #fde68a; /* amarillo para IN_PROGRESS */
+}
+
+.badge-completado {
+  background-color: #bbf7d0; /* verde para DONE */
+}
+
+/* Para select con clase badge */
+.input.badge-en-proceso {
+  background-color: #fff7cc;
+}
+
+.input.badge-completado {
+  background-color: #e7ffe7;
+}
+
+/* =====================================================
+   MODALES
+   ===================================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 400px;
+  max-width: 95%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* cerrar modal */
+.close-btn {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+/* botón principal modal */
+.submit-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--dk-blue);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* =====================================================
+   MODAL ELIMINAR / DONE
+   ===================================================== */
+
+.delete-content {
+  text-align: center;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.confirm-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  width: 40%;
+  font-size: 15px;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background-color: #b5b5b5;
+}
+
+.confirm-btn {
+  background-color: #c62828;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #a61b1b;
+}
+
+/* =====================================================
+   MENSAJES DE ERROR
+   ===================================================== */
+
+.error-text {
+  color: #c62828;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* =====================================================
+   TRUNCADO SEGURO DE TABLA
+   ===================================================== */
+
+td:nth-child(2),
+td:nth-child(3) {
+  max-width: 300px; /* título y descripción */
+}
+
+td:nth-child(2) > div,
+td:nth-child(3) > div {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* =====================================================
+   📱 RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 768px) {
+  .filter-panel {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .search-group {
+    flex-wrap: wrap;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+/* espacio entre campos del modal */
+.form-group {
+  margin-bottom: 12px;
+}
